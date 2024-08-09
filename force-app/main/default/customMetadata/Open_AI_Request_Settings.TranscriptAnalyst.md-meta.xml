@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>TranscriptAnalyst</label>
+    <protected>false</protected>
+    <values>
+        <field>Assistant_Prompt__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">callout:OpenAI/v1/chat/completions</value>
+    </values>
+    <values>
+        <field>Model_Name__c</field>
+        <value xsi:type="xsd:string">gpt-4o</value>
+    </values>
+    <values>
+        <field>Successful_Response_Status__c</field>
+        <value xsi:type="xsd:string">OK</value>
+    </values>
+    <values>
+        <field>System_Prompt__c</field>
+        <value xsi:type="xsd:string">You are a trained conference analyst with expertise in extracting structured insights from text data. You are an expert at providing JSON objects based on input text provided by the user. You always respond with a JSON object and only a JSON object, conforming to the instructions provided by the user. You never add commentary or text before or after the JSON object response.</value>
+    </values>
+    <values>
+        <field>Timeout__c</field>
+        <value xsi:type="xsd:double">120000.0</value>
+    </values>
+    <values>
+        <field>User_Prompt__c</field>
+        <value xsi:type="xsd:string">The following text is a transcript of feedback provided by attendees at a conference. Each section of the transcript corresponds to feedback from a specific attendee (referred to as Speaker 1, Speaker 2, etc.).
+
+Your task is to analyze the transcript of the conference feedback session using discrete values for trend analysis. Assess the attendees&apos; sense of satisfaction, learning, and networking (on a scale of 1-5). You should provide an overall sentiment analysis (negative, neutral, positive) of the conference based on each attendee&apos;s feedback.
+
+You should provide a sentiment score (-1 to 1) of the feedback text for each attendee. You should further provide a reason for each score FROM the feedback provided (i.e., don’t invent or make things up). Identify the most impactful sentences in the feedback that express the attendee&apos;s feelings about their satisfaction, learning, and networking, as well as the overall sentiment.
+
+For each category—satisfaction, learning, networking, and overall sentiment—select the most positive and the most negative sentence from the feedback for each attendee. If there isn’t enough detail from the feedback, don’t make things up.
+
+Focus on sentences that reflect the attendee&apos;s experience of the conference in terms of value gained, connections made, or knowledge acquired, rather than just general praise or criticism.
+
+Determine if the feedback includes a rating provided by the attendee, whereby the attendee has rated the conference from 1 to 10 (true/false). If a rating from 1 to 10 is mentioned (true), note down the specified rating (from 1 to 10). If the feedback does not contain a rating, leave the rating field as null. Don&apos;t evaluate the conference by yourself.
+
+Respond using this JSON format for each attendee:
+
+{
+&quot;speaker&quot;: &quot;speaker1&quot;,
+&quot;sense_of_satisfaction&quot;: 0, // rating scale 1 = low, 5 = high
+&quot;sense_of_learning&quot;: 0, // rating scale 1 = low, 5 = high
+&quot;sense_of_networking&quot;: 0, // rating scale 1 = low, 5 = high
+&quot;overall_sentiment&quot;: &quot;negative/neutral/positive&quot;,
+&quot;sentiment_score&quot;: 0, // rating scale -1 to 1
+&quot;sentiment_score_reason&quot;: &quot;sentiment score justification&quot;,
+&quot;most_positive_sentence_satisfaction&quot;: &quot;most positive satisfaction sentence&quot;,
+&quot;most_positive_sentence_learning&quot;: &quot;most positive learning sentence&quot;,
+&quot;most_positive_sentence_networking&quot;: &quot;most positive networking sentence&quot;,
+&quot;most_positive_sentence_overall&quot;: &quot;most positive sentence overall&quot;,
+&quot;most_negative_sentence_satisfaction&quot;: &quot;most negative satisfaction sentence&quot;,
+&quot;most_negative_sentence_learning&quot;: &quot;most negative learning sentence&quot;,
+&quot;most_negative_sentence_networking&quot;: &quot;most negative networking sentence&quot;,
+&quot;most_negative_sentence_overall&quot;: &quot;most negative sentence overall&quot;,
+&quot;rating_existence&quot;: true/false,
+&quot;rating_overall&quot;: 0 // rating scale 1 to 10
+}
+
+Your response should be in JSON format only, conforming to the structure above. Your response must only be this JSON object, without commentary before or after the JSON. For &quot;most negative&quot; or &quot;most positive&quot; sentences, DO NOT make sentences up; they MUST be direct quotes from the feedback.
+
+Here is the text of the transcript:</value>
+    </values>
+</CustomMetadata>

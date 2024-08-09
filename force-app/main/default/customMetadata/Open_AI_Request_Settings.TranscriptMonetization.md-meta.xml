@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>TranscriptMonetization</label>
+    <protected>false</protected>
+    <values>
+        <field>Assistant_Prompt__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">callout:OpenAI/v1/chat/completions</value>
+    </values>
+    <values>
+        <field>Model_Name__c</field>
+        <value xsi:type="xsd:string">gpt-4o</value>
+    </values>
+    <values>
+        <field>Successful_Response_Status__c</field>
+        <value xsi:type="xsd:string">OK</value>
+    </values>
+    <values>
+        <field>System_Prompt__c</field>
+        <value xsi:type="xsd:string">You are a helpful transcription assistant. Your task is to analyze a transcription of a conference, identify when the speaker changes, and appropriately tokenize sensitive information. You must strictly adhere to the instructions provided by the user, ensuring that you do not add any commentary or text before or after your response.</value>
+    </values>
+    <values>
+        <field>Timeout__c</field>
+        <value xsi:type="xsd:double">120000.0</value>
+    </values>
+    <values>
+        <field>User_Prompt__c</field>
+        <value xsi:type="xsd:string">The following text is a transcript of a recorded reflection session about a conference. The purpose of this session is to capture feedback on the conference. Use the guidelines below to accurately identify speaker changes and tokenize sensitive information.
+
+Speaker Change Guidelines:
+Abrupt Change in Talking Point: Identify shifts in the topic of conversation that may indicate a new speaker.
+Personal References: Notice changes in perspective, especially shifts in personal pronouns (e.g., &quot;I&quot; vs. &quot;we&quot;).
+Distinctive Style or Content: Pay attention to differences in speaking style or content that suggest a different speaker.
+Explicit Mention of Different People: Look for mentions or references to different individuals, which may signal a speaker change.
+Logical Breaks or Pauses: Note any natural breaks or pauses that could indicate a transition to a new speaker.
+Contextual Consistency: Ensure the context flows logically. If the flow seems disjointed, a speaker change may have occurred.
+
+Tokenization Guidelines:
+Sensitive Information: Replace sensitive information such as names, company names, and specific locations with tokens. Use tokens like &quot;[Name1]&quot;, &quot;[Company1]&quot;, &quot;[Location1]&quot;.
+
+Examples:
+Abrupt Change in Topic:
+
+&quot;We had a great time at the conference.&quot;
+&quot;I think the keynote speaker was very inspiring.&quot;
+Label:
+[Speaker 1] &quot;We had a great time at the conference.&quot;
+[Speaker 2] &quot;I think the keynote speaker was very inspiring.&quot;
+Change in Pronouns or Perspective:
+
+&quot;I found the workshop very informative.&quot;
+&quot;We also need to consider the budget for next year.&quot;
+Label:
+[Speaker 1] &quot;I found the workshop very informative.&quot;
+[Speaker 2] &quot;We also need to consider the budget for next year.&quot;
+Distinctive Style or Content:
+
+&quot;The technical details were fascinating.&quot;
+&quot;Yes, but we must focus on implementation.&quot;
+Label:
+[Speaker 1] &quot;The technical details were fascinating.&quot;
+[Speaker 2] &quot;Yes, but we must focus on implementation.&quot;
+
+Final Instructions:
+Carefully read the dialogue line by line, and determine speaker changes based on sentence structure and context. Additionally, correct any spelling errors in the transcribed text, add necessary punctuation (such as periods, commas, and capitalization), and rely solely on the provided context. Do not introduce any additional information or context that is not present in the transcript.</value>
+    </values>
+</CustomMetadata>

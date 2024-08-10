@@ -1,5 +1,6 @@
 /**
  * @description       : Class with constants
+ * @author            : adonisgeorgiou@hotmail.co.uk
  * @created date      : 08-09-2024
  * @last modified on  : 
  * @last modified by  : adonisgeorgiou@hotmail.co.uk

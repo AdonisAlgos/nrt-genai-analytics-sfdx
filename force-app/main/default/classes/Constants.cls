@@ -1,7 +1,7 @@
 /**
  * @description       : Class with constants
  * @author            : adonisgeorgiou@hotmail.co.uk
- * @created date      : 08-09-2024
+ * @created date      : 09-08-2024
  * @last modified on  : 
  * @last modified by  : adonisgeorgiou@hotmail.co.uk
 **/
@@ -14,12 +14,16 @@ public with sharing class Constants {
     public static final String ASSISTANT_PROMPT = 'Assistant_Prompt';
     public static final String SYSTEM_PROMPT = 'System_Prompt';
     public static final String USER_PROMPT = 'User_Prompt';
+    public static final String Timeout = 'Timeout';
     public static final String SUCCESSFUL_RESPONSE_STATUS = 'Successful_Response_Status';
     public static final String MODEL_NAME = 'Model_Name';
 
     //Open_AI_Request_Settings__mdt record DeveloperNames
     public static final String TRANSCRIPT_ANALYST = 'TranscriptAnalyst';
     public static final String TRANSCRIPT_MONETIZATION = 'TranscriptMonetization';
+
+    //Open_AI_Whisper_Request_Settings__mdt record DeveloperNames
+    public static final String TRANSCRIPT_REQUEST = 'TranscriptRequest';
 
     //API methods
     public static final String METHOD_POST = 'POST';

@@ -13,7 +13,7 @@ public with sharing class OpenAIChatMessageBuilder {
     /**
     * @description constructor builds maps of prompts
     * @param Map<String,String> reqSettings
-    * @param Session__c session
+    * @param Conference__c session
     */
     public OpenAIChatMessageBuilder(Map<String, String> reqSettings, Conference__c conference) {
         

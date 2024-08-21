@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Upload Conference Audio" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Conference Title" value={conferenceTitle}
+                onchange={handleTitleChange}></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <!-- File upload is disabled until the conference title is set -->
+            <lightning-file-upload label="Upload Audio File" record-id={conferenceId} accept=".mp3,.wav,.m4a"
+                onuploadfinished={handleUploadFinished} disabled={isFileUploadDisabled}>
+            </lightning-file-upload>
+        </div>
+        <template if:true={isUploaded}>
+            <div class="slds-m-around_medium">
+                <lightning-icon icon-name="utility:success" alternative-text="Success" size="small"></lightning-icon>
+                <p>Conference created and file uploaded successfully!</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

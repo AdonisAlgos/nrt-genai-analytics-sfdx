@@ -15,10 +15,10 @@ public with sharing class OpenAIQueueable implements Queueable, Database.AllowsC
             // Make the HTTP request to OpenAI API
             HttpResponse response = OpenAIConnect.makeChatRequest(reqSettings, conference);
 
-            // Handle the response (this is just a placeholder)
             if (response.getStatusCode() == 200) {
                 System.debug('OpenAI response: ' + response.getBody());
-                // You can add logic to update the conference record with the response here if necessary
+                JSONResponseHandler.createJSONResponseRecord(response.getBody(), conference.Name);
+
             } else {
                 System.debug('OpenAI request failed with status code: ' + response.getStatusCode());
             }

@@ -18,7 +18,8 @@ public with sharing class OpenAIQueueable implements Queueable, Database.AllowsC
             if (response.getStatusCode() == 200) {
                 System.debug('OpenAI response: ' + response.getBody());
                 JSONResponseHandler.createJSONResponseRecord(response.getBody(), conference.Name);
-
+                OpenAIJSONResponseHandler.SpeakerInsights insights = OpenAIJSONResponseHandler.getContent(response.getBody());
+                ConferenceInsightHandler.createConferenceInsights(insights,conference.Id, conference.Name);
             } else {
                 System.debug('OpenAI request failed with status code: ' + response.getStatusCode());
             }

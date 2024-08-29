@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relatedness_Satisfaction__c</fullName>
+    <description>Relatedness satisfaction rating (e.g., 1-5 scale).</description>
+    <externalId>false</externalId>
+    <label>Relatedness Satisfaction</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
